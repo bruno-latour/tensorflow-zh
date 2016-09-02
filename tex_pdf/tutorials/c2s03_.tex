@@ -314,7 +314,8 @@ for step in xrange(FLAGS.max_steps):
     _, loss_value = sess.run([train_op, loss], feed_dict=feed_dict)
 \end{lstlisting}
 
-因为要获取这两个值，\lstinline{sess.run()}会返回一个有两个元素的元组。其中每一个\lstinline{Tensor}对象，对应了返回的元组中的numpy数组，而这些数组中包含了当前这步训练中对应Tensor的值。由于\lstinline{train_op}并不会产生输出，其在返回的元祖中的对应元素就是\lstinline{None}，所以会被抛弃。但是，如果模型在训练中出现偏差，\lstinline{loss} Tensor的值可能会变成\lstinline{NaN}，所以我们要获取它的值，并记录下来。
+因为要获取这两个值，\lstinline{sess.run()}会返回一个有两个元素的元组。其中每一个\lstinline{Tensor}对象，对应了返回的元组中的numpy数组，而这些数组中包含了当前这步训练中对应Tensor的值。由于\lstinline{train_op}并不会产生输出，其在返回的元祖中的对应元素就是\lstinline{None}，所以会被抛弃。但是，如果模型在训练z中  chu x出现  fa s发散                      \lstinline{loss}
+Tensor的值可能会变成\lstinline{NaN}，所以我们要获取它的值，并记录下来。
 
 假设训练一切正常，没有出现\lstinline{NaN}，训练循环会每隔100个训练步骤，就打印一行简单的状态文本，告知用户当前的训练状态。
 
